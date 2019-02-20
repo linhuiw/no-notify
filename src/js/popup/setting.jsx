@@ -1,23 +1,34 @@
 import React from "react";
 import { hot } from "react-hot-loader";
 import { Checkbox } from 'antd';
+const Options = [
+  { label: '豆瓣', value: 'douban', selected: true },
+  { label: 'LinkedIn', value: 'linkedin', selected: true }
+];
 
 class Setting extends React.Component {
   constructor(props) {
     super(props);
-    const options = [
-      { label: '豆瓣', value: 'douban', selected: true },
-      { label: 'LinkedIn', value: 'linkedin', selected: true }
-    ];
     this.state = {
-      options
-    }
+      options: []
+    };
+    this.getStorage();
+  }
+  getStorage() {
+    chrome.storage.local.get('notify_setting', (storage) => {
+      this.setState({
+        options: storage['notify_setting'] || Options
+      });
+    });
   }
   onChange(checkboxIndex, event) {
     const { options } = this.state;
     const selected = event.target.checked;
     options[checkboxIndex].selected = selected;
 
+    chrome.storage.local.set({'notify_setting': options}, () => {
+      console.log('notify_setting 配置存储成功');
+    });
     this.setState({
       options: options
     });

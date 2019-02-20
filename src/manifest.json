@@ -6,7 +6,8 @@
   "permissions": [
     "https://*.douban.com/*",
     "https://*.linkedin.com/*",
-    "tabs"
+    "tabs",
+    "storage"
   ],
   "browser_action": {
     "default_popup": "popup.html",
