@@ -8,4 +8,4 @@
 - [x] LinkedIn
 
 ### TODOS
-- 找适合的 Icon
+- 待发布到插件市场
