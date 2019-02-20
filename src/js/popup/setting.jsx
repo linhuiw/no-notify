@@ -1,10 +1,7 @@
 import React from "react";
 import { hot } from "react-hot-loader";
 import { Checkbox } from 'antd';
-const Options = [
-  { label: '豆瓣', value: 'douban', selected: true },
-  { label: 'LinkedIn', value: 'linkedin', selected: true }
-];
+import { SITES } from '../sites';
 
 class Setting extends React.Component {
   constructor(props) {
@@ -17,7 +14,7 @@ class Setting extends React.Component {
   getStorage() {
     chrome.storage.local.get('notify_setting', (storage) => {
       this.setState({
-        options: storage['notify_setting'] || Options
+        options: storage['notify_setting'] || SITES
       });
     });
   }

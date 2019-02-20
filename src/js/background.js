@@ -1,6 +1,6 @@
 import '../img/icon-128.png'
 import '../img/icon-34.png'
-
+import { SITES } from './sites';
 /**
  * 监听浏览器事件
  */
@@ -43,6 +43,27 @@ function getSiteName(host) {
 }
 
 /**
+ * 获取支持的站点列表
+ * @param {*} callback
+ */
+function getEnableSites(callback) {
+  chrome.storage.local.get('notify_setting', (storage) => {
+    let sites = [];
+    if (Array.isArray(storage['notify_setting'])) {
+      sites = storage['notify_setting']
+      .filter((site) => {return site.selected})
+      .map((site) => {
+        return site.value;
+      });
+    } else {
+      sites = SITES.map((site) => {
+        return site.value;
+      });
+    }
+    callback && callback(sites);
+  });
+}
+/**
  * 添加对应样式
  * @param {*} tab
  */
@@ -51,11 +72,13 @@ function addStyle(tab) {
   var host = new URL(tabUrl).host;
   var site = getSiteName(host);
   console.log(site, 'site');
-  if (['douban', 'linkedin'].includes(site)) {
-    const styles = getStyles();
-    chrome.tabs.insertCSS(tab.id, {
-      code: styles[site],
-      runAt: "document_start"
-    });
-  }
+  getEnableSites((sites) => {
+    if (sites.includes(site)) {
+      const styles = getStyles();
+      chrome.tabs.insertCSS(tab.id, {
+        code: styles[site],
+        runAt: "document_start"
+      });
+    }
+  })
 }
