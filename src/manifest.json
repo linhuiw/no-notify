@@ -3,11 +3,9 @@
   "background": {
     "page": "background.html"
   },
-  "content_scripts": [
-    {
-      "matches": ["https://www.douban.com/*"],
-      "js": ["content.bundle.js"]
-    }
+  "permissions": [
+    "https://www.douban.com/*",
+    "tabs"
   ],
   "browser_action": {
     "default_popup": "popup.html",
