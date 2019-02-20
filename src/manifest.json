@@ -4,7 +4,7 @@
     "page": "background.html"
   },
   "permissions": [
-    "https://www.douban.com/*",
+    "https://*.douban.com/*",
     "tabs"
   ],
   "browser_action": {
