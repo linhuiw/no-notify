@@ -5,6 +5,7 @@
   },
   "permissions": [
     "https://*.douban.com/*",
+    "https://*.linkedin.com/*",
     "tabs"
   ],
   "browser_action": {
