@@ -1,0 +1,14 @@
+#app-container {
+  position: relative;
+  width: 230px;
+  height: 300px;
+}
+
+.container {
+  padding: 10px;
+}
+.container .options label {
+  display: block;
+  margin-left: 0;
+  margin-bottom: 4px;
+}

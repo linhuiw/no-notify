@@ -1,6 +1,6 @@
 # no-nofiy
 
-🚫 🙅 🙅 Don't notify me on social network site
+🚫 🙅 🙅 不要在社交网站上通知我
 
 ### 支持的社交网站
 - 豆瓣
