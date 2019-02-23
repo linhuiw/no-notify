@@ -1,7 +1,7 @@
 {
   "name": "no-notify",
   "version": "0.0.1",
-  "description": "🚫🙅‍♂️🙅‍♀️Don't notify me on social network site",
+  "description": "🚫🙅‍♂️🙅‍♀️不要在社交网站上通知我",
   "scripts": {
     "build": "node utils/build.js",
     "start": "node utils/webserver.js"

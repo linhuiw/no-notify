@@ -1,5 +1,5 @@
 {
-  "name": "no-notify",
+  "name": "不要通知我",
   "background": {
     "page": "background.html"
   },
