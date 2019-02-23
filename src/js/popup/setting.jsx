@@ -34,7 +34,7 @@ class Setting extends React.Component {
     const { options } = this.state;
     return (
       <div className="container">
-        <h2>🚫 🙅 🙅 不要打扰我</h2>
+        <h2>🚫 🙅 🙅 不要通知我</h2>
         <p>默认隐藏所有站点的通知，取消勾选则显示提醒</p>
         <div className="options">
           {options.map((option, index) => {
